@@ -7,3 +7,6 @@ Program *publisher* akan mengirimkan **5 buah pesan (event)** ke *message broker
 URL yang sama persis ini menandakan bahwa program *publisher* dan *subscriber* **terhubung ke *server message broker* (RabbitMQ) yang sama**. 
 
 Dalam arsitektur *event-driven*, agar *subscriber* dapat menerima pesan yang dikirimkan oleh *publisher*, keduanya harus berkomunikasi melalui "perantara" yang sama. Oleh karena itu, *publisher* mengirim pesan ke alamat `localhost:5672` (dengan kredensial `guest`), dan *subscriber* juga "mendengarkan" (*listen*) pada alamat dan kredensial yang persis sama untuk mengambil pesan-pesan tersebut dari antrian.
+
+## Running RabbitMQ as message broker
+![rabbitMQ](rabbitMQ.png)
