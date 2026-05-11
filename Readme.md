@@ -13,3 +13,15 @@ Dalam arsitektur *event-driven*, agar *subscriber* dapat menerima pesan yang dik
 
 ## Sending and processing event
 ![processingevent](processingevent.png)
+
+## Monitoring Chart Based on Publisher
+
+![RabbitMQ Message Rates Chart](spike.png)
+
+**Penjelasan Lonjakan (Spike) pada Grafik:**
+
+Lonjakan (*spike*) yang terlihat pada grafik "Message rates" di atas berhubungan langsung dengan eksekusi program *publisher*. 
+
+Setiap kali program *publisher* dijalankan (`cargo run`), ia akan mengirimkan *burst* atau rentetan 5 pesan sekaligus secara instan ke *message broker* (RabbitMQ). Ketika saya menjalankan program *publisher* berulang-ulang secara cepat dalam waktu singkat, RabbitMQ menerima volume pesan masuk (pengiriman/ *publish*) yang sangat tinggi secara tiba-tiba dalam satu detik. 
+
+Sistem RabbitMQ merespons masuknya lalu lintas data yang mendadak ini dengan menampilkannya sebagai lonjakan tajam pada grafik *Message rates*. Jika *subscriber* sedang menyala, grafik pengiriman keluar (*deliver* / pengambilan pesan) juga akan ikut melonjak tajam karena *subscriber* dengan cepat memproses tumpukan pesan yang baru saja masuk tersebut.
