@@ -10,3 +10,6 @@ Dalam arsitektur *event-driven*, agar *subscriber* dapat menerima pesan yang dik
 
 ## Running RabbitMQ as message broker
 ![rabbitMQ](rabbitMQ.png)
+
+## Sending and processing event
+![processingevent](processingevent.png)
